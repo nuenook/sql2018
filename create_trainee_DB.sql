@@ -49,11 +49,20 @@ ALTER TABLE dbo.Car ADD
 
 USE trainee
 GO
+INSERT INTO [dbo].[Customer]
+           ([customer_name]
+           ,[customer_age])
+     VALUES
+           ('Robert',42),
+		   ('Selena',39),
+		   ('Jackson',30),
+		   ('Sulu',22)
+GO
 
 INSERT INTO [dbo].[Car]
            ([car_name]
            ,[car_price]
-           ,[customer_id])
+           ,[dbo].[Car].[customer_id])
      VALUES
            ('BMW', 120000, 1),
 		   ('BMW 2', 10000, NULL),
@@ -71,9 +80,15 @@ INSERT INTO [dbo].[Customer]
            ([customer_name]
            ,[customer_age])
      VALUES
-           ('Robert',42),
-		   ('Selena',39),
-		   ('Jackson',30),
-		   ('Sulu',22)
+           ('Tim',21)
+		  
 GO
 
+
+Delete From [car_id]
+      ,[car_name]
+      ,[car_price]
+      ,[customer_id]
+	   Where customer_id = NULL;
+
+GO
